@@ -86,5 +86,3 @@ python test_end2end.py --test_set_dir my_new_dataset/test/ --low_res_gen_ckpt_di
 **Outputs:**
 The script will save the generated frames (both low-res and super-res) in the specified `--output_dir` and will output evaluation metrics (FVD, SSIM, PSNR, LPIPS) to the console to assess the quality of the generation.
 
-### Useful Information
-If you have any questions, contact us at abzargar@ucsc.edu.
