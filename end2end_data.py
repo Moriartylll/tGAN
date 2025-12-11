@@ -8,7 +8,7 @@ import numpy as np
 
 IMG_EXTENSIONS = [
     '.jpg', '.JPG', '.jpeg', '.JPEG', '.pgm', '.PGM',
-    '.png', '.PNG', '.ppm', '.PPM', '.bmp', '.BMP', '.tiff',
+    '.png', '.PNG', '.ppm', '.PPM', '.bmp', '.BMP', '.tiff', '.tif', '.TIF',
     '.txt', '.json'
 ]
 
@@ -86,9 +86,10 @@ class BasicDataset():
         return tensor_img,tensor_mask
 
     def get_image(self, A_path, B_path):
-        A_img = cv2.imread(A_path, 0) > 0
+        A_img = cv2.imread(A_path, -1)
+        A_img = A_img > 0
         A_img = A_img.astype('float32')
-        B_img = cv2.imread(B_path, 0).astype('float32')
+        B_img = cv2.imread(B_path, -1).astype('float32')
         B_img = (255 * ((B_img - B_img.min()) / (B_img.ptp() + 1e-6))).astype(np.uint8)
         return A_img,B_img
 
